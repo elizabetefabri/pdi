@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { TuiAppearance } from '@taiga-ui/core';
 import { PositionCardData } from '../../models/dashboard.model';
@@ -6,7 +5,7 @@ import { PositionCardData } from '../../models/dashboard.model';
 @Component({
   selector: 'app-position-card',
   standalone: true,
-  imports: [CommonModule, TuiAppearance],
+  imports: [TuiAppearance],
   templateUrl: './position-card.component.html',
   styleUrl: './position-card.component.scss',
 })

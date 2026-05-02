@@ -9,12 +9,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of rows()">
-        <td><span class="status-pill" [ngClass]="row.periodTone" tuiBadge>{{ row.period }}</span></td>
-        <td>{{ row.delivery }}</td>
-        <td>{{ row.type }}</td>
-        <td>{{ row.expectedImpact }}</td>
-      </tr>
+      @for (row of rows(); track row.delivery) {
+        <tr>
+          <td><span class="status-pill" [class]="row.periodTone" tuiBadge>{{ row.period }}</span></td>
+          <td>{{ row.delivery }}</td>
+          <td>{{ row.type }}</td>
+          <td>{{ row.expectedImpact }}</td>
+        </tr>
+      }
     </tbody>
   </table>
 </div>

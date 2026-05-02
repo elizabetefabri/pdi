@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDI — Dev Júnior → Pleno | Itaú</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --surface2: #18181f;
+    --border: #2a2a3a;
+    --accent: #ec6a2a;
+    --accent2: #f7c25e;
+    --accent3: #5e9ff7;
+    --text: #e8e8f0;
+    --muted: #7a7a9a;
+    --green: #4ecb8d;
+    --red: #f06a7a;
+    --purple: #a78bfa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    position: relative;
+    padding: 60px 48px 48px;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(236,106,42,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+  }
+  .header h1 span { color: var(--accent); }
+  .header-sub {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 14px;
+    font-family: 'DM Mono', monospace;
+  }
+  .header-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .meta-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    color: var(--muted);
+  }
+  .meta-chip .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .meta-chip .dot.green { background: var(--green); }
+  .meta-chip .dot.blue { background: var(--accent3); }
+
+  /* ── LAYOUT ── */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 48px 80px;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 52px 0 24px;
+  }
+  .section-label .line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-label span {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* ── DIAGNOSIS GRID ── */
+  .diag-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .diag-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .diag-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+    border-radius: 12px 0 0 12px;
+  }
+  .diag-card.green::after { background: var(--green); }
+  .diag-card.blue::after { background: var(--accent3); }
+  .diag-card.yellow::after { background: var(--accent2); }
+  .diag-card.red::after { background: var(--red); }
+  .diag-card.purple::after { background: var(--purple); }
+  .diag-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .diag-card p { font-size: 13.5px; color: var(--text); line-height: 1.6; }
+  .diag-card ul { list-style: none; padding: 0; }
+  .diag-card ul li {
+    font-size: 13px;
+    color: var(--text);
+    padding: 3px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .diag-card ul li::before {
+    content: '→';
+    color: var(--accent);
+    font-size: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .diag-card.green ul li::before { color: var(--green); }
+  .diag-card.blue ul li::before { color: var(--accent3); }
+  .diag-card.red ul li::before { color: var(--red); }
+
+  /* ── ALERTA DE REDUNDÂNCIA ── */
+  .alert-box {
+    background: rgba(247,194,94,0.07);
+    border: 1px solid rgba(247,194,94,0.3);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 8px;
+  }
+  .alert-box .alert-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .alert-box p { font-size: 13.5px; line-height: 1.7; color: var(--text); }
+  .alert-box strong { color: var(--accent2); }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 8px; bottom: 8px;
+    width: 1px;
+    background: var(--border);
+  }
+  .phase {
+    position: relative;
+    margin-bottom: 40px;
+  }
+  .phase-dot {
+    position: absolute;
+    left: -28px; top: 6px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: var(--bg);
+    z-index: 1;
+  }
+  .phase-dot.green { border-color: var(--green); }
+  .phase-dot.blue { border-color: var(--accent3); }
+  .phase-dot.purple { border-color: var(--purple); }
+  .phase-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .phase-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .phase-period.green { color: var(--green); }
+  .phase-period.blue { color: var(--accent3); }
+  .phase-period.purple { color: var(--purple); }
+  .phase-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .phase-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  .pcard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .pcard-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .pcard ul { list-style: none; }
+  .pcard ul li {
+    font-size: 13px;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+  }
+  .pcard ul li:last-child { border-bottom: none; }
+  .pcard ul li .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    background: rgba(236,106,42,0.15);
+    color: var(--accent);
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .pcard ul li .tag.green { background: rgba(78,203,141,0.15); color: var(--green); }
+  .pcard ul li .tag.blue { background: rgba(94,159,247,0.15); color: var(--accent3); }
+  .pcard ul li .tag.purple { background: rgba(167,139,250,0.15); color: var(--purple); }
+
+  /* ── CERTS TABLE ── */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+  .cert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .cert-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .cert-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    padding: 3px 8px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .cert-badge.curto { background: rgba(236,106,42,0.15); color: var(--accent); border: 1px solid rgba(236,106,42,0.3); }
+  .cert-badge.medio { background: rgba(94,159,247,0.15); color: var(--accent3); border: 1px solid rgba(94,159,247,0.3); }
+  .cert-badge.longo { background: rgba(167,139,250,0.15); color: var(--purple); border: 1px solid rgba(167,139,250,0.3); }
+  .cert-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+  .cert-why {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--text);
+    padding: 8px 12px;
+    background: var(--surface2);
+    border-radius: 6px;
+    border-left: 2px solid var(--border);
+  }
+
+  /* ── ENTREGAS ── */
+  .entregas-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .entregas-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+  .entregas-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text);
+  }
+  .entregas-table tr:last-child td { border-bottom: none; }
+  .entregas-table tr:hover td { background: var(--surface2); }
+  .status-pill {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    padding: 3px 8px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  .status-pill.t1 { background: rgba(236,106,42,0.15); color: var(--accent); border: 1px solid rgba(236,106,42,0.25); }
+  .status-pill.t2 { background: rgba(94,159,247,0.15); color: var(--accent3); border: 1px solid rgba(94,159,247,0.25); }
+  .status-pill.t3 { background: rgba(167,139,250,0.15); color: var(--purple); border: 1px solid rgba(167,139,250,0.25); }
+  .status-pill.t4 { background: rgba(78,203,141,0.15); color: var(--green); border: 1px solid rgba(78,203,141,0.25); }
+
+  /* ── POSICIONAMENTO ── */
+  .pos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 640px) { .pos-grid { grid-template-columns: 1fr; } }
+  .pos-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+  }
+  .pos-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .pos-card ul { list-style: none; }
+  .pos-card ul li {
+    font-size: 13px;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .pos-card ul li:last-child { border-bottom: none; }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 64px;
+    padding: 24px 48px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  @media print {
+    body { background: white; color: black; }
+    .header::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-tag">// plano de desenvolvimento individual</div>
+  <h1>Dev Júnior <span>→ Pleno</span><br>Back-end & Arquitetura</h1>
+  <div class="header-sub">Itaú · ENG FOUNDATION · Horizon: 6 meses → 2 anos</div>
+  <div class="header-meta">
+    <div class="meta-chip"><span class="dot"></span> Go · Node.js · Python</div>
+    <div class="meta-chip"><span class="dot green"></span> Foco: Arquitetura Back-end</div>
+    <div class="meta-chip"><span class="dot blue"></span> Dados: SQL → Data Mesh</div>
+    <div class="meta-chip"><span class="dot"></span> Angular (ativo / paralelo)</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- DIAGNÓSTICO -->
+  <div class="section-label">
+    <span>01 · diagnóstico atual</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="diag-grid">
+    <div class="diag-card green">
+      <div class="diag-title">✦ Forças reais</div>
+      <ul>
+        <li>2-3 anos de experiência ativa como dev</li>
+        <li>Stack back-end diversificada: Go, Node.js, Python</li>
+        <li>Exposição front Angular em produção (banco)</li>
+        <li>SQL / queries no dia a dia</li>
+        <li>On-call via ServiceNow (maturidade operacional)</li>
+        <li>Projeto pessoal relevante: Rollout Service (Go + Mongo + Hexagonal)</li>
+      </ul>
+    </div>
+    <div class="diag-card red">
+      <div class="diag-title">⚠ Gaps críticos para pleno</div>
+      <ul>
+        <li>Sem especialização definida ainda (full stack amplo = risco de ser "mediano em tudo")</li>
+        <li>Dados além de SQL: pipelines, streaming, data mesh — ainda conceitual</li>
+        <li>Observabilidade / Datadog ainda não consolidado</li>
+        <li>Arquitetura de software: domínio parcial (hexagonal no projeto, mas não em prod)</li>
+        <li>Sem certificação de mercado</li>
+      </ul>
+    </div>
+    <div class="diag-card blue">
+      <div class="diag-title">◈ Contexto Itaú</div>
+      <ul>
+        <li>Banco grande = valoriza especialização + impacto mensurável</li>
+        <li>ENG FOUNDATION: área de plataforma — back-end sólido é pré-requisito</li>
+        <li>Iniciativa RT DJ (Developer Journey): visibilidade real na área</li>
+        <li>1:1 com tech lead: use para alinhar expectativas de promoção diretamente</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <div class="alert-title">⚡ análise de redundância no seu objetivo</div>
+    <p>
+      Você mencionou querer se especializar em <strong>"data mesh + Datadog"</strong>, mas definiu como prioridade máxima <strong>arquitetura de back-end sólido</strong>. Isso <strong>não é redundância — é uma sequência lógica</strong>: você não consegue operar bem em data mesh ou observabilidade sem ter a fundação de back-end primeiro. A redundância real seria tentar estudar arquitetura, dados, Datadog e Angular ao mesmo tempo. <strong>O PDI abaixo resolve isso com foco em fases progressivas.</strong>
+    </p>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="section-label">
+    <span>02 · trilha de desenvolvimento — fases</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="timeline">
+
+    <!-- FASE 1 -->
+    <div class="phase">
+      <div class="phase-dot"></div>
+      <div class="phase-header">
+        <div class="phase-period">0–3 meses</div>
+        <div class="phase-title">Fundação: Back-end Sólido + Visibilidade</div>
+      </div>
+      <div class="phase-cards">
+        <div class="pcard">
+          <div class="pcard-label">🎯 foco técnico</div>
+          <ul>
+            <li><span class="tag">Go</span> Aprofundar hexagonal architecture em prod (Rollout Service como laboratório)</li>
+            <li><span class="tag">Go</span> Dominar testes unitários + integração em Go</li>
+            <li><span class="tag">Design</span> Patterns: SOLID, Clean Architecture, DDD básico</li>
+            <li><span class="tag">API</span> REST design avançado: versionamento, contratos, erros padronizados</li>
+            <li><span class="tag">SQL</span> Evoluir SQL: índices, explain plan, performance queries</li>
+          </ul>
+        </div>
+        <div class="pcard">
+          <div class="pcard-label">📦 entregas concretas</div>
+          <ul>
+            <li><span class="tag green">Projeto</span> Completar fases 3.3+ do Rollout Service (Release Train Service)</li>
+            <li><span class="tag green">Doc</span> Documentar arquitetura no Notion com ADRs (Architecture Decision Records)</li>
+            <li><span class="tag green">Visib.</span> Apresentar o Rollout Service ou iniciativa DJ ao tech lead / squad</li>
+            <li><span class="tag green">1:1</span> Conversa direta com gestor: "o que falta para eu ser pleno em 6 meses?"</li>
+          </ul>
+        </div>
+        <div class="pcard">
+          <div class="pcard-label">📚 estudo semanal (5-10h)</div>
+          <ul>
+            <li><span class="tag blue">Livro</span> Clean Architecture — Robert C. Martin (1-2 caps/semana)</li>
+            <li><span class="tag blue">Curso</span> Go avançado — Udemy / Alura (Itaú pode subsidiar)</li>
+            <li><span class="tag blue">Prática</span> Refatorar 1 módulo do Rollout por semana aplicando princípios</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 2 -->
+    <div class="phase">
+      <div class="phase-dot green"></div>
+      <div class="phase-header">
+        <div class="phase-period green">3–6 meses</div>
+        <div class="phase-title">Pleno: Consolidação + Observabilidade + Certificação</div>
+      </div>
+      <div class="phase-cards">
+        <div class="pcard">
+          <div class="pcard-label">🎯 foco técnico</div>
+          <ul>
+            <li><span class="tag">Obs.</span> Datadog: logs estruturados, APM, traces distribuídos, alertas</li>
+            <li><span class="tag">Cloud</span> AWS fundamentals: ECS, CloudWatch, IAM, S3 (já no contexto do Rollout)</li>
+            <li><span class="tag">Back</span> Message queues básico: conceitos de Kafka/SQS para integrações</li>
+            <li><span class="tag">Front</span> Angular: manter competência, não evoluir — tempo mínimo necessário</li>
+          </ul>
+        </div>
+        <div class="pcard">
+          <div class="pcard-label">📦 entregas concretas</div>
+          <ul>
+            <li><span class="tag green">Prod</span> Instrumentar Rollout Service com Datadog APM em ambiente de dev</li>
+            <li><span class="tag green">Cert</span> Tirar AWS Cloud Practitioner (base para próximas)</li>
+            <li><span class="tag green">Promoção</span> Apresentar case técnico ao gestor: impacto do Rollout + DJ + certs</li>
+            <li><span class="tag green">Mentoria</span> Documentar aprendizados e começar a ajudar devs mais novos</li>
+          </ul>
+        </div>
+        <div class="pcard">
+          <div class="pcard-label">📚 estudo semanal (5-10h)</div>
+          <ul>
+            <li><span class="tag blue">Cert</span> AWS Cloud Practitioner — 4-6 semanas de estudo focado</li>
+            <li><span class="tag blue">Docs</span> Datadog docs oficiais + playground gratuito (trial 14 dias)</li>
+            <li><span class="tag blue">Itaú</span> Trilhas internas de cloud/observabilidade (verificar com gestor)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 3 -->
+    <div class="phase">
+      <div class="phase-dot blue"></div>
+      <div class="phase-header">
+        <div class="phase-period blue">6–12 meses (pós-pleno)</div>
+        <div class="phase-title">Especialização: Dados + Plataforma</div>
+      </div>
+      <div class="phase-cards">
+        <div class="pcard">
+          <div class="pcard-label">🎯 foco técnico</div>
+          <ul>
+            <li><span class="tag">Dados</span> Data Mesh: conceitos, data products, data contracts</li>
+            <li><span class="tag">Dados</span> Pipelines: dbt, Apache Kafka, Spark básico ou Flink</li>
+            <li><span class="tag">Python</span> Python para dados: Pandas, Pydantic, FastAPI para data APIs</li>
+            <li><span class="tag">AWS</span> AWS Solutions Architect Associate: infra completa</li>
+            <li><span class="tag">Obs.</span> Datadog avançado: custom metrics, SLOs, dashboards de negócio</li>
+          </ul>
+        </div>
+        <div class="pcard">
+          <div class="pcard-label">📦 entregas concretas</div>
+          <ul>
+            <li><span class="tag blue">Projeto</span> Propor (ou participar de) solução de data product no Itaú</li>
+            <li><span class="tag blue">Cert</span> AWS Solutions Architect Associate</li>
+            <li><span class="tag blue">Tech</span> Tech talk interno: apresentar data mesh ou observabilidade para o time</li>
+            <li><span class="tag blue">RT DJ</span> Evoluir iniciativa DJ com métricas de developer experience</li>
+          </ul>
+        </div>
+        <div class="pcard">
+          <div class="pcard-label">📚 estudo semanal (5-10h)</div>
+          <ul>
+            <li><span class="tag blue">Livro</span> Designing Data-Intensive Applications — M. Kleppmann</li>
+            <li><span class="tag blue">Curso</span> Data Mesh course (data.world ou Udemy)</li>
+            <li><span class="tag blue">Prática</span> Side project: pipeline simples com Kafka + Python + Datadog</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 4 -->
+    <div class="phase">
+      <div class="phase-dot purple"></div>
+      <div class="phase-header">
+        <div class="phase-period purple">12–24 meses</div>
+        <div class="phase-title">Sênior Horizonte: Referência Técnica</div>
+      </div>
+      <div class="phase-cards">
+        <div class="pcard">
+          <div class="pcard-label">🎯 foco técnico</div>
+          <ul>
+            <li><span class="tag purple">Arq.</span> System design: escalabilidade, tolerância a falhas, trade-offs</li>
+            <li><span class="tag purple">Dados</span> Governança de dados, data lineage, data quality em escala</li>
+            <li><span class="tag purple">Lider.</span> Tech leadership: code review estratégico, RFCs, decisões de arquitetura</li>
+            <li><span class="tag purple">Plat.</span> Platform engineering: developer portals, Internal Developer Platform</li>
+          </ul>
+        </div>
+        <div class="pcard">
+          <div class="pcard-label">📦 entregas concretas</div>
+          <ul>
+            <li><span class="tag purple">Cert</span> AWS Data Analytics Specialty ou Datadog Fundamentals (oficial)</li>
+            <li><span class="tag purple">Impacto</span> Liderar tech de um módulo crítico do time</li>
+            <li><span class="tag purple">Ext.</span> Publicar artigo técnico (Medium, dev.to, LinkedIn)</li>
+            <li><span class="tag purple">Mentoria</span> Ser referência técnica para juniores da equipe</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CERTIFICAÇÕES -->
+  <div class="section-label">
+    <span>03 · certificações — roadmap</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-name">AWS Cloud Practitioner</div>
+        <span class="cert-badge curto">curto prazo</span>
+      </div>
+      <div class="cert-desc">Certificação de entrada AWS. Cobre conceitos de cloud, principais serviços, segurança e billing.</div>
+      <div class="cert-why">✦ Por quê agora: você já usa ECS, S3, CloudWatch no Rollout Service. Esta cert formaliza e estrutura esse conhecimento. É a base para todas as AWS que vêm depois.</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-name">Datadog Fundamentals</div>
+        <span class="cert-badge curto">curto prazo</span>
+      </div>
+      <div class="cert-desc">Certificação oficial da Datadog. Cobre APM, logs, traces, dashboards e alertas.</div>
+      <div class="cert-why">✦ Por quê agora: Datadog é parte do seu objetivo e o Itaú usa em produção. Esta cert é rápida (20-30h estudo) e gera impacto imediato no trabalho.</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-name">AWS Solutions Architect — Associate</div>
+        <span class="cert-badge medio">médio prazo</span>
+      </div>
+      <div class="cert-desc">Principal cert de arquitetura cloud. Cobre design de sistemas, alta disponibilidade, segurança e custo.</div>
+      <div class="cert-why">✦ Por quê: diferencial forte para pleno→sênior em banco. Valida capacidade de decisão arquitetural em cloud — essencial na ENG FOUNDATION.</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-name">MongoDB Associate Developer</div>
+        <span class="cert-badge medio">médio prazo</span>
+      </div>
+      <div class="cert-desc">Certificação oficial MongoDB para desenvolvedores. Cobre modelagem, agregações, índices e drivers.</div>
+      <div class="cert-why">✦ Por quê: você já usa MongoDB no Rollout Service. Esta cert formaliza e aprofunda o conhecimento que você já tem — ótimo custo-benefício de estudo.</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-name">AWS Data Analytics Specialty</div>
+        <span class="cert-badge longo">longo prazo</span>
+      </div>
+      <div class="cert-desc">Cert avançada de dados na AWS. Cobre Kinesis, Glue, Redshift, Athena e pipelines analíticos.</div>
+      <div class="cert-why">✦ Por quê: alinha diretamente com o objetivo de data mesh e plataforma de dados. Posiciona você como especialista de dados em nível sênior.</div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-header">
+        <div class="cert-name">Trilhas Internas Itaú</div>
+        <span class="cert-badge curto">paralelo</span>
+      </div>
+      <div class="cert-desc">Plataformas como Alura (parceria), trilhas de cloud, segurança e dados disponíveis internamente.</div>
+      <div class="cert-why">✦ Por quê: validação interna tem peso em processos de promoção no Itaú. Pergunte ao gestor quais trilhas contam como evidência no PDI oficial.</div>
+    </div>
+  </div>
+
+  <!-- ENTREGAS POR TRIMESTRE -->
+  <div class="section-label">
+    <span>04 · entregas mensuráveis — por trimestre</span>
+    <div class="line"></div>
+  </div>
+
+  <table class="entregas-table">
+    <thead>
+      <tr>
+        <th>Período</th>
+        <th>Entrega</th>
+        <th>Tipo</th>
+        <th>Impacto esperado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="status-pill t1">T1 · M1-3</span></td>
+        <td>Completar Release Train Service (fase 3.3 do Rollout)</td>
+        <td>Projeto</td>
+        <td>Evidência técnica de back-end completo em Go</td>
+      </tr>
+      <tr>
+        <td><span class="status-pill t1">T1 · M1-3</span></td>
+        <td>Documentar arquitetura com ADRs no Notion</td>
+        <td>Documentação</td>
+        <td>Hábito de sênior: decisões documentadas e rastreáveis</td>
+      </tr>
+      <tr>
+        <td><span class="status-pill t1">T1 · M1-3</span></td>
+        <td>1:1 com gestor: pacto de promoção com critérios claros</td>
+        <td>Carreira</td>
+        <td>Alinhar expectativas e ter mapa de avaliação real</td>
+      </tr>
+      <tr>
+        <td><span class="status-pill t1">T1 · M2-3</span></td>
+        <td>Datadog Fundamentals certification</td>
+        <td>Certificação</td>
+        <td>Diferencial imediato + aplicação no Rollout Service</td>
+      </tr>
+      <tr>
+        <td><span class="status-pill t2">T2 · M4-6</span></td>
+        <td>AWS Cloud Practitioner aprovado</td>
+        <td>Certificação</td>
+        <td>Base para arquitetura cloud + crédito em processos internos</td>
+      </tr>
+      <tr>
+        <td><span class="status-pill t2">T2 · M4-6</span></td>
+        <td>Instrumentar Rollout Service com APM/Datadog</td>
+        <td>Técnico</td>
+        <td>Aplicação prática de observabilidade em projeto real</td>
+      </tr>
+      <tr>
+        <td><span class="status-pill t2">T2 · M5-6</span></td>
+        <td>Case técnico para promoção a pleno</td>
+        <td>Carreira</td>
+        <td>Evidenciar evolução, impactos e especialização ao gestor</td>
+      </tr>
+      <tr>
+        <td><span class="status-pill t3">T3 · M7-9</span></td>
+        <td>MongoDB Associate Developer certification</td>
+        <td>Certificação</td>
+        <td>Consolida expertise já existente com validação oficial</td>
+      </tr>
+      <tr>
+        <td><span class="status-pill t3">T3 · M7-9</span></td>
+        <td>Iniciar estudos de data mesh e pipelines</td>
+        <td>Estudo</td>
+        <td>Transição para o próximo nível de especialização</td>
+      </tr>
+      <tr>
+        <td><span class="status-pill t3">T3 · M8-9</span></td>
+        <td>Tech talk interno: arquitetura hexagonal ou observabilidade</td>
+        <td>Visibilidade</td>
+        <td>Posicionamento como referência técnica no time</td>
+      </tr>
+      <tr>
+        <td><span class="status-pill t4">T4 · M10-12</span></td>
+        <td>AWS Solutions Architect Associate</td>
+        <td>Certificação</td>
+        <td>Credencial sênior em cloud — diferencial forte no banco</td>
+      </tr>
+      <tr>
+        <td><span class="status-pill t4">T4 · M10-12</span></td>
+        <td>Propor ou participar de projeto de dados na área</td>
+        <td>Técnico</td>
+        <td>Primeiro contato real com data mesh / plataforma de dados</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- POSICIONAMENTO -->
+  <div class="section-label">
+    <span>05 · como se posicionar para pleno</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="pos-grid">
+    <div class="pos-card">
+      <h3>🗣 O que comunicar ao gestor</h3>
+      <ul>
+        <li>"Estou me especializando em arquitetura back-end com Go, com visão de dados e observabilidade"</li>
+        <li>"O Rollout Service é meu projeto âncora de evidência técnica"</li>
+        <li>"Quero entender os critérios concretos de avaliação para pleno"</li>
+        <li>"Tenho contribuído com a iniciativa DJ, que impacta toda a área"</li>
+        <li>"Estou buscando certs de mercado (Datadog + AWS) para formalizar expertise"</li>
+      </ul>
+    </div>
+    <div class="pos-card">
+      <h3>📊 Evidências que constroem o case</h3>
+      <ul>
+        <li>Código em produção com impacto mensurável (ex: latência, bugs resolvidos)</li>
+        <li>Documentação técnica de qualidade (ADRs, diagramas, Notion)</li>
+        <li>Certificações: proof de conhecimento além do dia a dia</li>
+        <li>Iniciativas além do backlog: DJ, Rollout, tech talks</li>
+        <li>On-call resolvido com diagnóstico estruturado (Datadog + post-mortem)</li>
+        <li>Ajudar e revisar código de outros devs (comportamento pleno)</li>
+      </ul>
+    </div>
+    <div class="pos-card">
+      <h3>⚡ Armadilhas a evitar</h3>
+      <ul>
+        <li>Tentar estudar tudo ao mesmo tempo → foco até os 6 meses primeiro</li>
+        <li>Ficar invisível: entrega sem comunicação não gera promoção</li>
+        <li>Angular como escape: é sua realidade, mas não é sua trajetória — limite o tempo</li>
+        <li>PDI sem alinhamento com gestor: valide as prioridades internamente</li>
+        <li>Certificação sem aplicação prática: estude o que já usa ou vai usar logo</li>
+      </ul>
+    </div>
+    <div class="pos-card">
+      <h3>🧭 Perfil alvo ao fim de 6 meses</h3>
+      <ul>
+        <li>Dev back-end pleno em Go com domínio de arquitetura hexagonal</li>
+        <li>Capacidade de propor e revisar soluções de forma autônoma</li>
+        <li>Observabilidade com Datadog: logs, APM, alertas — certificado</li>
+        <li>AWS Cloud Practitioner: infra cloud formalizada</li>
+        <li>Contribuição visível na iniciativa DJ com impacto na área</li>
+        <li>Referência técnica para 1 domínio específico do time</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>// PDI gerado com Claude · Itaú · ENG FOUNDATION</span>
+  <span>revisão recomendada: trimestral</span>
+</div>
+
+</body>
+</html>

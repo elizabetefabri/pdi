@@ -12,10 +12,12 @@
     </div>
 
     <div class="header-meta">
-      <div *ngFor="let chip of metaChips" class="meta-chip" tuiChip>
-        <span class="dot" [ngClass]="chip.dotColor"></span>
-        {{ chip.label }}
-      </div>
+      @for (chip of metaChips; track chip.label) {
+        <div class="meta-chip" tuiChip>
+          <span class="dot" [class]="chip.dotColor"></span>
+          {{ chip.label }}
+        </div>
+      }
     </div>
   </nav>
 </header>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { TuiChip } from '@taiga-ui/kit';
 
 interface MetaChip {
@@ -10,17 +9,17 @@ interface MetaChip {
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, TuiChip],
+  imports: [TuiChip],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  title = 'Dev Júnior → Pleno';
-  subtitle = 'Back-end & Arquitetura';
-  organization = 'Itaú Unibanco · Squad Eng Foundation';
-  horizon = 'Tempo de Casa: 1 ano → 6 meses';
+  readonly title = 'Dev Júnior → Pleno';
+  readonly subtitle = 'Back-end & Arquitetura';
+  readonly organization = 'Itaú Unibanco · Squad Eng Foundation';
+  readonly horizon = 'Tempo de Casa: 1 ano → 6 meses';
 
-  metaChips: MetaChip[] = [
+  readonly metaChips: MetaChip[] = [
     { label: 'Go · Node.js · Python', dotColor: 'primary' },
     { label: 'Backend: AWS', dotColor: 'green' },
     { label: 'DevOps: CI/CD', dotColor: 'blue' },
@@ -29,7 +28,6 @@ export class HeaderComponent {
     { label: 'FrontEnd: React, Angular · TypeScript', dotColor: 'amarelo' },
     { label: 'Metodologias: Agile, Scrum', dotColor: 'primary' },
     { label: 'Containers: Docker, Kubernetes', dotColor: 'green' },
-    { label: 'Engenharia de PROMPT ia ', dotColor: 'blue' },
-
+    { label: 'Engenharia de PROMPT ia', dotColor: 'blue' },
   ];
 }
