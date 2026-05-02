@@ -1,41 +1,28 @@
 <header class="app-header">
-  <nav class="navegacao">
-    <div class="header-tag">// pdi · plano de desenvolvimento individual</div>
-
-    <h1 class="header-title">
-      {{ title }}<br />
-      <span class="text-primary">{{ subtitle }}</span>
-    </h1>
-
-    <div class="header-subtitle">
-      {{ organization }} · {{ horizon }}
+  <div class="header-shell">
+    <div class="identity-bar">
+      <p class="identity-main">
+        {{ professionalName }} · {{ currentRole }} · {{ squad }}
+      </p>
+      <p class="identity-goal">{{ objectivePlaceholder }}</p>
     </div>
 
-    <div class="header-menu">
-      <div class="menu-group">
-        @for (link of anchorLinks; track link.fragment) {
-          <a [routerLink]="['/dashboard']" [fragment]="link.fragment" class="menu-link">
+    <nav class="nav-block" aria-label="Navegação principal do PDI">
+      <div class="nav-row primary">
+        @for (link of primaryLinks; track link.fragment) {
+          <a [routerLink]="['/dashboard']" [fragment]="link.fragment" class="nav-link">
             {{ link.label }}
           </a>
         }
       </div>
 
-      <div class="menu-group details">
-        @for (link of detailLinks; track link.route) {
-          <a [routerLink]="link.route" class="menu-link detail-link">
+      <div class="nav-row secondary">
+        @for (link of secondaryLinks; track link.route) {
+          <a [routerLink]="link.route" routerLinkActive="is-active" class="nav-link nav-link-secondary">
             {{ link.label }}
           </a>
         }
       </div>
-    </div>
-
-    <div class="header-meta">
-      @for (chip of metaChips; track chip.label) {
-        <div class="meta-chip" tuiChip>
-          <span class="dot" [class]="chip.dotColor"></span>
-          {{ chip.label }}
-        </div>
-      }
-    </div>
-  </nav>
+    </nav>
+  </div>
 </header>

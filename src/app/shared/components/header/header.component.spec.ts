@@ -21,20 +21,20 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display title', () => {
+  it('should render identity bar', () => {
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.header-title')).toBeTruthy();
+    expect(compiled.querySelector('.identity-main')?.textContent).toContain('Elizabete Fabri');
   });
 
-  it('should display meta chips', () => {
+  it('should render primary navigation links', () => {
     const compiled = fixture.nativeElement;
-    const chips = compiled.querySelectorAll('.meta-chip');
-    expect(chips.length).toBe(component.metaChips.length);
+    const links = compiled.querySelectorAll('.nav-row.primary .nav-link');
+    expect(links.length).toBe(component.primaryLinks.length);
   });
 
-  it('should render correct number of dots', () => {
+  it('should render secondary navigation links', () => {
     const compiled = fixture.nativeElement;
-    const dots = compiled.querySelectorAll('.dot');
-    expect(dots.length).toBe(component.metaChips.length);
+    const links = compiled.querySelectorAll('.nav-row.secondary .nav-link');
+    expect(links.length).toBe(component.secondaryLinks.length);
   });
 });

@@ -46,6 +46,11 @@ describe('DashboardComponent', () => {
     expect(compiled.querySelector('app-header')).toBeTruthy();
   });
 
+  it('should render hero banner component', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('app-hero-banner')).toBeTruthy();
+  });
+
   it('should display content section', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.dashboard-content')).toBeTruthy();

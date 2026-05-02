@@ -1,0 +1,93 @@
+:host {
+  display: block;
+}
+
+.hero-banner {
+  padding: 0.25rem 1rem 0.5rem;
+}
+
+.hero-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  padding: 1rem;
+}
+
+.hero-kicker {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.hero-title {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-family-display);
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.15;
+}
+
+.hero-subtitle {
+  margin: 0 0 0.75rem;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.hero-objective {
+  margin: 0 0 1rem;
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.chip-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  & + .chip-group {
+    margin-top: 0.75rem;
+  }
+}
+
+.chip-group-title {
+  margin: 0;
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(236, 106, 42, 0.35);
+  background: rgba(236, 106, 42, 0.1);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+}
+
+.chip-secondary {
+  border-color: var(--color-border);
+  background: var(--color-bg-secondary);
+}
+
+.hero-slot {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+}

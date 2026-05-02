@@ -4,19 +4,26 @@
 
 .dashboard {
   min-height: 100vh;
+
+  background: linear-gradient(
+    90deg,
+    rgba(236, 97, 42, 0.1) 0%,
+    rgba(116, 42, 236, 0.03) 45%,
+    rgba(94, 247, 132, 0.04) 100%
+  );
 }
 
 // ==================
 // Dashboard Content
 // ==================
 .dashboard-content {
-  padding: 0 1rem 4rem;
-  background-color: var(--color-bg-primary);
+  padding: 0 0 1.5rem;
+  background: transparent;
 }
 
 .main-grid {
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
 }
 
 section[id] {
@@ -85,10 +92,6 @@ section[id] {
 }
 
 @media (min-width: 992px) {
-  .dashboard-content {
-    padding: 0 3rem 5rem;
-  }
-
   .diag-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }

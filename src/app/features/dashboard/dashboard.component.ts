@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { HeaderComponent } from '../../shared/components/header/header.component';
+import { HeroBannerComponent } from '../../shared/components/hero/hero-banner.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { PdiDataService } from '../../core/services/pdi-data.service';
 import { SectionLabelComponent } from './components/section-label/section-label.component';
@@ -15,6 +16,7 @@ import { PositionCardComponent } from './components/position-card/position-card.
   standalone: true,
   imports: [
     HeaderComponent,
+    HeroBannerComponent,
     FooterComponent,
     SectionLabelComponent,
     DiagnosticCardComponent,
