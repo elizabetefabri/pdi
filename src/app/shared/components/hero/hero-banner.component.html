@@ -1,30 +1,44 @@
 <section class="hero-banner">
   <div class="hero-shell">
-    <p class="hero-kicker">// Plano de Desenvolvimento Individual</p>
-    <h1 class="hero-title">{{ title }}</h1>
-    <p class="hero-subtitle">{{ subtitle }}</p>
-    <p class="hero-objective">{{ objectivePlaceholder }}</p>
-
-    <div class="chip-group">
-      <p class="chip-group-title">Tecnologias que utilizo no dia a dia</p>
-      <div class="chip-list">
-        @for (chip of dailyStack; track chip) {
-          <span class="chip">{{ chip }}</span>
-        }
+    <div class="hero-top">
+      <div class="hero-main">
+        <h1 class="hero-title">
+          PDI — Júnior para <span class="hero-highlight">Pleno</span><br />
+          em Back-end & Arquitetura
+        </h1>
+        <p class="hero-subtitle">{{ subtitle }}</p>
       </div>
+
+      <aside class="hero-objective-block">
+        <p class="hero-objective-label">Objetivo Atual</p>
+        <p class="hero-objective">{{ objectivePlaceholder }}</p>
+      </aside>
     </div>
 
-    <div class="chip-group">
-      <p class="chip-group-title">Práticas e métodos que aplico</p>
-      <div class="chip-list">
-        @for (chip of workPractices; track chip) {
-          <span class="chip chip-secondary">{{ chip }}</span>
-        }
-      </div>
-    </div>
+    <div class="chips-layout">
+      <div class="chip-group">
+        <div class="chip-group-techs">
+          <p class="chip-group-title">Tecnologias que utilizo no dia a dia</p>
+          <div class="chip-list">
+            @for (chip of dailyStack; track chip) {
+            <span class="chip">{{ chip }}</span>
+            }
+          </div>
 
-    <div class="hero-slot">
-      <ng-content />
+          <div class="chip-group">
+            <p class="chip-group-title">Práticas e métodos que aplico</p>
+            <div class="chip-list">
+              @for (chip of workPractices; track chip) {
+              <span class="chip chip-secondary">{{ chip }}</span>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-slot">
+          <ng-content />
+        </div>
+      </div>
     </div>
   </div>
 </section>
