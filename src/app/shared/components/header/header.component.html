@@ -11,6 +11,24 @@
       {{ organization }} · {{ horizon }}
     </div>
 
+    <div class="header-menu">
+      <div class="menu-group">
+        @for (link of anchorLinks; track link.fragment) {
+          <a [routerLink]="['/dashboard']" [fragment]="link.fragment" class="menu-link">
+            {{ link.label }}
+          </a>
+        }
+      </div>
+
+      <div class="menu-group details">
+        @for (link of detailLinks; track link.route) {
+          <a [routerLink]="link.route" class="menu-link detail-link">
+            {{ link.label }}
+          </a>
+        }
+      </div>
+    </div>
+
     <div class="header-meta">
       @for (chip of metaChips; track chip.label) {
         <div class="meta-chip" tuiChip>

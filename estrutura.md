@@ -1,0 +1,2 @@
+1. indique o tipo de icon que combina com meu site
+2. esse site irei apresentar para o meu coord e eu devo estar com o sistema organizado e com todo o contexto pronto so que antes, precisamos estruturar algumas coisas no projeto, começando pelo header, adicionando um menu que clica e leva aos itens na mesma página? ou separamos por links para o sistema ficar mais curto e mais limpo na página inicial? preciso da ajuda do agente design.

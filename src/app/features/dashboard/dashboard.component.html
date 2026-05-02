@@ -4,45 +4,55 @@
   <section class="dashboard-content">
     <div class="main-grid">
       @if (data(); as d) {
-        <app-section-label text="01 · diagnostico atual"></app-section-label>
+        <section id="diagnostico">
+          <app-section-label text="01 · diagnostico atual"></app-section-label>
 
-        <div class="diag-grid">
-          @for (card of d.diagnosticCards; track card.title) {
-            <app-diagnostic-card [card]="card"></app-diagnostic-card>
-          }
-        </div>
+          <div class="diag-grid">
+            @for (card of d.diagnosticCards; track card.title) {
+              <app-diagnostic-card [card]="card"></app-diagnostic-card>
+            }
+          </div>
+        </section>
 
         <article class="alert-box">
           <h3 class="alert-title">⚡ {{ d.focusAlert.title }}</h3>
           <p>{{ d.focusAlert.body }}</p>
         </article>
 
-        <app-section-label text="02 · trilha de desenvolvimento — fases"></app-section-label>
+        <section id="fases">
+          <app-section-label text="02 · trilha de desenvolvimento — fases"></app-section-label>
 
-        <section class="timeline">
-          @for (phase of d.phases; track phase.period) {
-            <app-phase-block [phase]="phase"></app-phase-block>
-          }
+          <section class="timeline">
+            @for (phase of d.phases; track phase.period) {
+              <app-phase-block [phase]="phase"></app-phase-block>
+            }
+          </section>
         </section>
 
-        <app-section-label text="03 · certificacoes — roadmap"></app-section-label>
+        <section id="certificacoes">
+          <app-section-label text="03 · certificacoes — roadmap"></app-section-label>
 
-        <div class="cert-grid">
-          @for (cert of d.certifications; track cert.name) {
-            <app-cert-card [cert]="cert"></app-cert-card>
-          }
-        </div>
+          <div class="cert-grid">
+            @for (cert of d.certifications; track cert.name) {
+              <app-cert-card [cert]="cert"></app-cert-card>
+            }
+          </div>
+        </section>
 
-        <app-section-label text="04 · entregas mensuraveis — por trimestre"></app-section-label>
-        <app-deliveries-table [rows]="d.deliveries"></app-deliveries-table>
+        <section id="entregas">
+          <app-section-label text="04 · entregas mensuraveis — por trimestre"></app-section-label>
+          <app-deliveries-table [rows]="d.deliveries"></app-deliveries-table>
+        </section>
 
-        <app-section-label text="05 · como se posicionar para pleno"></app-section-label>
+        <section id="posicionamento">
+          <app-section-label text="05 · como se posicionar para pleno"></app-section-label>
 
-        <div class="pos-grid">
-          @for (card of d.positionCards; track card.title) {
-            <app-position-card [card]="card"></app-position-card>
-          }
-        </div>
+          <div class="pos-grid">
+            @for (card of d.positionCards; track card.title) {
+              <app-position-card [card]="card"></app-position-card>
+            }
+          </div>
+        </section>
       }
 
       <app-footer></app-footer>

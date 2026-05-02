@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { TuiChip } from '@taiga-ui/kit';
 
 interface MetaChip {
@@ -6,10 +7,20 @@ interface MetaChip {
   dotColor: 'primary' | 'green' | 'blue' | 'pink' | 'roxo' | 'amarelo';
 }
 
+interface AnchorLink {
+  label: string;
+  fragment: string;
+}
+
+interface DetailLink {
+  label: string;
+  route: string;
+}
+
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [TuiChip],
+  imports: [TuiChip, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -18,6 +29,19 @@ export class HeaderComponent {
   readonly subtitle = 'Back-end & Arquitetura';
   readonly organization = 'Itaú Unibanco · Squad Eng Foundation';
   readonly horizon = 'Tempo de Casa: 1 ano → 6 meses';
+  readonly anchorLinks: AnchorLink[] = [
+    { label: 'Diagnóstico', fragment: 'diagnostico' },
+    { label: 'Fases', fragment: 'fases' },
+    { label: 'Certificações', fragment: 'certificacoes' },
+    { label: 'Entregas', fragment: 'entregas' },
+    { label: 'Posicionamento', fragment: 'posicionamento' },
+  ];
+
+  readonly detailLinks: DetailLink[] = [
+    { label: 'Skills', route: '/skills' },
+    { label: 'Projetos', route: '/projetos' },
+    { label: 'Roadmap', route: '/roadmap' },
+  ];
 
   readonly metaChips: MetaChip[] = [
     { label: 'Go · Node.js · Python', dotColor: 'primary' },

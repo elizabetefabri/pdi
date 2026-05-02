@@ -88,6 +88,41 @@
   }
 }
 
+.header-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: space-between;
+}
+
+.menu-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.menu-link {
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 6px 10px;
+  transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+
+  &:hover {
+    color: var(--color-text-primary);
+    border-color: var(--color-primary);
+    background: var(--color-bg-secondary);
+  }
+}
+
+.detail-link {
+  color: var(--color-primary);
+  border-color: rgba(236, 106, 42, 0.35);
+  background: rgba(236, 106, 42, 0.08);
+}
+
 // ==================
 // Meta Chip
 // ==================
