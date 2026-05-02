@@ -1,5 +1,14 @@
+:host {
+  display: block;
+  min-width: 0;
+  height: 100%;
+}
+
 .diag-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
   border-radius: 12px;

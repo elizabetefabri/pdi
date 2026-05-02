@@ -953,7 +953,7 @@ export class QualityAssuranceAgent {
   
   private runTests(): boolean {
     try {
-      execSync('ng test --watch=false', { stdio: 'inherit' });
+      execSync('npm run test:coverage -- --runInBand', { stdio: 'inherit' });
       return true;
     } catch {
       console.log('⚠️ Testes ainda não implementados');

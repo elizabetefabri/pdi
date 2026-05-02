@@ -98,7 +98,8 @@ pdi/
 | `npm start`             | Serve app em http://localhost:4200          |
 | `npm run build`         | Build para produção (SSR + browser)         |
 | `npm run watch`         | Watch mode - rebuild on changes             |
-| `npm test`              | Rodar testes (vitest)                       |
+| `npm test`              | Rodar testes unitários com Jest             |
+| `npm run test:coverage` | Rodar testes com relatório de cobertura     |
 | `npm run serve:ssr:pdi` | Rodar servidor SSR em http://localhost:4000 |
 
 ---
@@ -162,7 +163,7 @@ npm run serve:ssr:pdi
 2. Configurar serviços em `src/app/core/services/`
 3. Criar componentes compartilhados em `src/app/shared/`
 4. Implementar rotas em `src/app/app.routes.ts`
-5. Adicionar testes com vitest
+5. Adicionar/expandir testes com Jest e acompanhar cobertura
 
 ---
 

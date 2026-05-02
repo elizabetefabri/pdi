@@ -109,9 +109,13 @@ export class App {}
     "@angular/compiler-cli": "^21.2.0",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
+    "@types/jest": "^30.0.0",
+    "jest": "^30.3.0",
+    "jest-environment-jsdom": "^30.3.0",
+    "jest-preset-angular": "^16.1.4",
     "prettier": "^3.8.1",
-    "typescript": "~5.9.2",
-    "vitest": "^4.0.8"
+    "ts-jest": "^29.4.9",
+    "typescript": "~5.9.2"
   }
 }
 ```
@@ -316,7 +320,8 @@ a:focus-visible {
 npm start           # ng serve
 npm run build       # ng build (produção com SSR)
 npm run serve:ssr:pdi  # node dist/pdi/server/server.mjs
-npm test            # vitest
+npm test            # jest
+npm run test:coverage # jest com cobertura
 ```
 
 ---

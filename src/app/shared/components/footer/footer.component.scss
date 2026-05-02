@@ -10,6 +10,13 @@
   color: var(--color-text-muted);
 }
 
+.link a {
+  color: var(--color-accent-pink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
 @media (min-width: 640px) {
   .dashboard-footer {
     flex-direction: row;

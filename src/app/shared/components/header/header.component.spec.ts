@@ -27,12 +27,12 @@ describe('HeaderComponent', () => {
   it('should display meta chips', () => {
     const compiled = fixture.nativeElement;
     const chips = compiled.querySelectorAll('.meta-chip');
-    expect(chips.length).toBe(4);
+    expect(chips.length).toBe(component.metaChips.length);
   });
 
   it('should render correct number of dots', () => {
     const compiled = fixture.nativeElement;
     const dots = compiled.querySelectorAll('.dot');
-    expect(dots.length).toBe(4);
+    expect(dots.length).toBe(component.metaChips.length);
   });
 });

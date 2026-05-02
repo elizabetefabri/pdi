@@ -88,8 +88,8 @@ export class QualityAssuranceAgent {
 
   private runTests(): AgentStatus {
     try {
-      // vitest está no package.json como test runner
-      execSync('npm test -- --run', { stdio: 'pipe' });
+      // Jest é o test runner do projeto
+      execSync('npm test -- --runInBand', { stdio: 'pipe' });
       console.log('  ✅ Testes: todos passaram');
       return 'success';
     } catch {

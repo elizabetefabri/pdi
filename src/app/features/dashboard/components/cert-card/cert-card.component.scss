@@ -1,4 +1,13 @@
+:host {
+  display: block;
+  min-width: 0;
+  height: 100%;
+}
+
 .cert-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
   border-radius: 12px;
@@ -53,6 +62,7 @@
 }
 
 .cert-why {
+  margin-top: auto;
   color: var(--color-text-secondary);
   font-size: 12px;
   background: var(--color-bg-tertiary);
