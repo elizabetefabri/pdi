@@ -1,0 +1,6 @@
+<article class="diag-card" [ngClass]="card().tone" tuiAppearance="floating">
+  <h3 class="diag-title">{{ card().title }}</h3>
+  <ul>
+    <li *ngFor="let item of card().items">{{ item }}</li>
+  </ul>
+</article>

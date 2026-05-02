@@ -1,0 +1,27 @@
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2rem 0 1rem;
+}
+
+.section-label .line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.section-label span {
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .section-label {
+    margin: 3rem 0 1.5rem;
+  }
+}

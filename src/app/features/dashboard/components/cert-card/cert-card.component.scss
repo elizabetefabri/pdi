@@ -1,0 +1,62 @@
+.cert-card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.cert-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.cert-name {
+  font-family: var(--font-family-display);
+  font-size: 15px;
+  color: var(--color-text-primary);
+}
+
+.cert-badge {
+  font-family: var(--font-family-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.cert-badge.curto,
+.cert-badge.paralelo {
+  color: var(--color-primary);
+  background: rgba(236, 106, 42, 0.16);
+  border: 1px solid rgba(236, 106, 42, 0.25);
+}
+
+.cert-badge.medio {
+  color: var(--color-accent-blue);
+  background: rgba(59, 130, 246, 0.16);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.cert-badge.longo {
+  color: var(--color-accent-roxo);
+  background: rgba(139, 92, 246, 0.16);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+.cert-desc {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  margin-bottom: 0.75rem;
+}
+
+.cert-why {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  background: var(--color-bg-tertiary);
+  border-left: 2px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+}
