@@ -1,0 +1,132 @@
+.phase {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.phase-dot {
+  position: absolute;
+  left: -22px;
+  top: 7px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+  background: var(--color-bg-primary);
+}
+
+.phase-dot.green {
+  border-color: var(--color-accent-green);
+}
+
+.phase-dot.blue {
+  border-color: var(--color-accent-blue);
+}
+
+.phase-dot.purple {
+  border-color: var(--color-accent-roxo);
+}
+
+.phase-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.phase-period {
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.phase-period.green {
+  color: var(--color-accent-green);
+}
+
+.phase-period.blue {
+  color: var(--color-accent-blue);
+}
+
+.phase-period.purple {
+  color: var(--color-accent-roxo);
+}
+
+.phase-title {
+  font-family: var(--font-family-display);
+  font-size: 18px;
+  color: var(--color-text-primary);
+}
+
+.phase-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.pcard {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 0.875rem;
+}
+
+.pcard-label {
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.pcard ul {
+  list-style: none;
+}
+
+.pcard li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pcard li:last-child {
+  border-bottom: none;
+}
+
+.tag {
+  font-family: var(--font-family-mono);
+  font-size: 9px;
+  white-space: nowrap;
+  border-radius: 4px;
+  padding: 2px 6px;
+  color: var(--color-primary);
+  background: rgba(236, 106, 42, 0.16);
+}
+
+.tag.green {
+  color: var(--color-accent-green);
+  background: rgba(34, 197, 94, 0.16);
+}
+
+.tag.blue {
+  color: var(--color-accent-blue);
+  background: rgba(59, 130, 246, 0.16);
+}
+
+.tag.purple {
+  color: var(--color-accent-roxo);
+  background: rgba(139, 92, 246, 0.16);
+}
+
+@media (min-width: 768px) {
+  .phase-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

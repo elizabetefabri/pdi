@@ -1,0 +1,8 @@
+<article class="cert-card" tuiAppearance="floating">
+  <div class="cert-header">
+    <h3 class="cert-name">{{ cert().name }}</h3>
+    <span class="cert-badge" [ngClass]="cert().badge" tuiBadge>{{ cert().badge }}</span>
+  </div>
+  <p class="cert-desc">{{ cert().description }}</p>
+  <p class="cert-why">{{ cert().why }}</p>
+</article>

@@ -1,0 +1,21 @@
+<header class="app-header">
+  <nav class="navegacao">
+    <div class="header-tag">// pdi · plano de desenvolvimento individual</div>
+
+    <h1 class="header-title">
+      {{ title }}<br />
+      <span class="text-primary">{{ subtitle }}</span>
+    </h1>
+
+    <div class="header-subtitle">
+      {{ organization }} · {{ horizon }}
+    </div>
+
+    <div class="header-meta">
+      <div *ngFor="let chip of metaChips" class="meta-chip" tuiChip>
+        <span class="dot" [ngClass]="chip.dotColor"></span>
+        {{ chip.label }}
+      </div>
+    </div>
+  </nav>
+</header>

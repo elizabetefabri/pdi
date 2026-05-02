@@ -1,0 +1,77 @@
+.diag-card {
+  position: relative;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.diag-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--color-primary);
+}
+
+.diag-card.green::after {
+  background: var(--color-accent-green);
+}
+
+.diag-card.blue::after {
+  background: var(--color-accent-blue);
+}
+
+.diag-card.red::after {
+  background: #ef4444;
+}
+
+.diag-title {
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.diag-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.diag-card li {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  padding: 0.25rem 0;
+  line-height: 1.45;
+}
+
+.diag-card li::before {
+  content: '->';
+  color: var(--color-primary);
+  margin-top: 1px;
+}
+
+.diag-card.green li::before {
+  color: var(--color-accent-green);
+}
+
+.diag-card.blue li::before {
+  color: var(--color-accent-blue);
+}
+
+.diag-card.red li::before {
+  color: #ef4444;
+}
+
+@media (min-width: 768px) {
+  .diag-card {
+    padding: 1.25rem 1.5rem;
+  }
+}
