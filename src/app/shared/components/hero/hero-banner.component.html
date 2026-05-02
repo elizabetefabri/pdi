@@ -24,21 +24,21 @@
             <span class="chip">{{ chip }}</span>
             }
           </div>
+        </div>
 
-          <div class="chip-group">
-            <p class="chip-group-title">Práticas e métodos que aplico</p>
-            <div class="chip-list">
-              @for (chip of workPractices; track chip) {
-              <span class="chip chip-secondary">{{ chip }}</span>
-              }
-            </div>
+        <div class="chip-group-practices">
+          <p class="chip-group-title">Práticas e métodos que aplico</p>
+          <div class="chip-list">
+            @for (chip of workPractices; track chip) {
+            <span class="chip chip-secondary">{{ chip }}</span>
+            }
           </div>
         </div>
+      </div>
 
-        <div class="hero-slot">
-          <ng-content />
-        </div>
+      <div class="hero-slot">
+        <ng-content />
+      </div>
       </div>
     </div>
-  </div>
 </section>

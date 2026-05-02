@@ -69,21 +69,21 @@
 }
 
 .chip-group {
-  display: flex;
+  display: grid;
   flex-direction: column;
   gap: 0.5rem;
   min-height: 110px;
   padding-top: 2rem;
 }
 
-.chip-group-techs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.chip-group-techs, .chip-group-practices {
+  display: flex;
+  /* grid-template-columns: 1fr 1fr; */
   gap: 1rem;
   border: 1px solid var(--color-border);
   border-radius: 12px;
-
   padding: 0.875rem;
+  flex-direction: column;
 }
 
 .chip-group-title {
@@ -131,7 +131,7 @@
     align-items: stretch;
   }
 
-  .chip-group-techs {
+  .chip-group {
     grid-template-columns: 1fr 1fr;
   }
 }

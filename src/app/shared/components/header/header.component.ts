@@ -22,7 +22,7 @@ export class HeaderComponent {
   readonly professionalName = 'Elizabete Fabri';
   readonly currentRole = 'Engenheira de Plataforma';
   readonly squad = 'Squad Eng Foundation';
-  readonly objectivePlaceholder = 'Objetivo do ciclo: __________________________________';
+  readonly objectivePlaceholder = 'Objetivo do ciclo: Rollout Service, Frontend Angular';
 
   readonly primaryLinks: AnchorLink[] = [
     { label: 'Diagnóstico', fragment: 'diagnostico' },
