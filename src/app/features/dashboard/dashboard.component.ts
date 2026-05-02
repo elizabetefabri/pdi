@@ -7,6 +7,7 @@ import { PhaseBlockComponent } from './components/phase-block/phase-block.compon
 import { CertCardComponent } from './components/cert-card/cert-card.component';
 import { DeliveriesTableComponent } from './components/deliveries-table/deliveries-table.component';
 import { PositionCardComponent } from './components/position-card/position-card.component';
+import { FooterComponent } from './components/footer/footer.component';
 import {
   AlertData,
   CertificationData,
@@ -28,6 +29,7 @@ import {
     CertCardComponent,
     DeliveriesTableComponent,
     PositionCardComponent,
+    FooterComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
