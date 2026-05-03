@@ -6,7 +6,14 @@
           PDI — Júnior para <span class="hero-highlight">Pleno</span><br />
           em Back-end & Arquitetura
         </h1>
-        <p class="hero-subtitle">{{ subtitle }}</p>
+
+        <!-- IDENTIDADE -->
+        <div class="identity-block">
+          <h2 class="identity-name">{{ professionalName }}</h2>
+          <p class="identity-role">
+            {{ currentRole }} · {{ squad }}
+          </p>
+        </div>
       </div>
 
       <aside class="hero-objective-block">
@@ -36,9 +43,15 @@
         </div>
       </div>
 
+      <!-- OBJETIVO DO CICLO (CARD) -->
+      <div class="objective-card-circle">
+        <h3 class="objective-label-circle">🎯 Objetivo do Ciclo</h3>
+        <p class="objective-text-circle">{{ objectivePlaceholderCycle }}</p>
+      </div>
+
       <div class="hero-slot">
         <ng-content />
       </div>
-      </div>
     </div>
+  </div>
 </section>

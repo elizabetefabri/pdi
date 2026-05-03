@@ -1,0 +1,54 @@
+<header class="app-header">
+  <div class="header-shell">
+
+    <!-- IDENTIDADE -->
+    <div class="identity-block">
+      <h1 class="identity-name">{{ professionalName }}</h1>
+      <p class="identity-role">
+        {{ currentRole }} · {{ squad }}
+      </p>
+    </div>
+
+    <!-- TÍTULO DO PDI -->
+    <h2 class="pdi-title">
+      PDI — Júnior para Pleno em Back-end & Arquitetura
+    </h2>
+
+    <!-- OBJETIVO DO CICLO (CARD) -->
+    <div class="objective-card">
+      <h3 class="objective-label">🎯 Objetivo do Ciclo</h3>
+      <p class="objective-text">{{ objectivePlaceholder }}</p>
+    </div>
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="nav-block" aria-label="Navegação principal do PDI">
+
+      <!-- PRIMÁRIA -->
+      <div class="nav-row primary">
+        @for (link of primaryLinks; track link.fragment) {
+          <a
+            [routerLink]="['/dashboard']"
+            [fragment]="link.fragment"
+            class="nav-link nav-primary"
+          >
+            {{ link.label }}
+          </a>
+        }
+      </div>
+
+      <!-- SECUNDÁRIA -->
+      <div class="nav-row secondary">
+        @for (link of secondaryLinks; track link.route) {
+          <a
+            [routerLink]="link.route"
+            routerLinkActive="is-active"
+            class="nav-link nav-secondary"
+          >
+            {{ link.label }}
+          </a>
+        }
+      </div>
+
+    </nav>
+  </div>
+</header>

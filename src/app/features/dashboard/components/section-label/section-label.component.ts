@@ -7,5 +7,6 @@ import { Component, input } from '@angular/core';
   styleUrl: './section-label.component.scss',
 })
 export class SectionLabelComponent {
+    readonly subtitle = 'Plano organizado para apresentar contexto, evolução e próximos passos com clareza.';
   readonly text = input.required<string>();
 }
