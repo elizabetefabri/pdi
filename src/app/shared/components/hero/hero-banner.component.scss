@@ -1,0 +1,179 @@
+:host {
+  display: block;
+}
+
+.hero-banner {
+  padding: 0.25rem 1rem 0.5rem;
+  font-family: var(--font-family-display);
+}
+
+.hero-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  padding-top: 5rem;
+}
+
+.hero-top {
+  display: grid;
+  gap: 1rem;
+}
+
+.hero-title {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-family-display);
+  font-size: clamp(20px, 5.2vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.hero-highlight {
+  color: var(--color-primary);
+}
+
+/* IDENTIDADE */
+.identity-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.identity-name {
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* OBJETIVO DO CICLO */
+.objective-card-circle {
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(236, 106, 42, 0.08);
+  border: 1px solid rgba(236, 106, 42, 0.25);
+}
+
+.objective-label-circle {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+}
+
+.objective-text-circle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+
+.identity-role {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.hero-objective-block {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-bg-secondary);
+  padding: 0.875rem;
+  min-height: 108px;
+}
+
+.hero-objective-label {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.hero-objective {
+  margin: 0;
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+}
+
+.chips-layout {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.chip-group {
+  display: grid;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 110px;
+  padding-top: 2rem;
+}
+
+.chip-group-techs, .chip-group-practices {
+  display: flex;
+  /* grid-template-columns: 1fr 1fr; */
+  gap: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0.875rem;
+  flex-direction: column;
+}
+
+.chip-group-title {
+  margin: 0 auto;
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(236, 106, 42, 0.35);
+  background: rgba(236, 106, 42, 0.1);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+}
+
+.chip-secondary {
+  border-color: var(--color-border);
+  background: var(--color-bg-secondary);
+}
+
+// .hero-slot {
+//   margin-top: 0.75rem;
+//   padding-top: 0.75rem;
+// }
+
+@media (min-width: 860px) {
+  .hero-top {
+    grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+    align-items: stretch;
+  }
+
+  .chip-group {
+    grid-template-columns: 1fr 1fr;
+  }
+}

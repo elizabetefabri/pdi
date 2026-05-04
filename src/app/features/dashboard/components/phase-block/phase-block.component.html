@@ -1,19 +1,23 @@
 <article class="phase">
-  <div class="phase-dot" [ngClass]="phase().tone"></div>
+  <div class="phase-dot" [class]="phase().tone"></div>
   <div class="phase-header">
-    <div class="phase-period" [ngClass]="phase().tone">{{ phase().period }}</div>
+    <div class="phase-period" [class]="phase().tone">{{ phase().period }}</div>
     <h3 class="phase-title">{{ phase().title }}</h3>
   </div>
 
   <div class="phase-cards">
-    <section class="pcard" *ngFor="let card of phase().cards" tuiAppearance="floating">
-      <h4 class="pcard-label">{{ card.label }}</h4>
-      <ul>
-        <li *ngFor="let item of card.items">
-          <span class="tag" [ngClass]="item.tagTone || 'default'" tuiChip>{{ item.tag }}</span>
-          {{ item.text }}
-        </li>
-      </ul>
-    </section>
+    @for (card of phase().cards; track card.label) {
+      <section class="pcard" tuiAppearance="floating">
+        <h4 class="pcard-label">{{ card.label }}</h4>
+        <ul>
+          @for (item of card.items; track item.text) {
+            <li>
+              <span class="tag" [class]="item.tagTone || 'default'" tuiChip>{{ item.tag }}</span>
+              {{ item.text }}
+            </li>
+          }
+        </ul>
+      </section>
+    }
   </div>
 </article>

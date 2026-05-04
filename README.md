@@ -16,7 +16,7 @@
 
 ## 📋 Sobre
 
-Um **PDI (Plano de Desenvolvimento Individual) digital e interativo** construído com **Angular v17**, mostrando meu progresso técnico com:
+Um **PDI (Plano de Desenvolvimento Individual) digital e interativo** construído com **Angular 21**, mostrando meu progresso técnico com:
 
 - 📊 **Dashboard** com KPIs de evolução
 - ⚡ **Skills & Competências** com progress bars
@@ -43,12 +43,12 @@ Um **PDI (Plano de Desenvolvimento Individual) digital e interativo** construíd
 ### Frontend
 
 ```
-Angular v17          Standalone Components, Routing, HttpClient
-TypeScript 5.1+      Tipagem forte e precisão
-Tailwind CSS v3      Utility-first, design system customizado
-ECharts              Gráficos interativos e animados
-Framer Motion        Animações suaves (Angular animations)
+Angular 21           Standalone Components, Routing, SSR
+TypeScript 5.9       Tipagem forte e precisão
+Taiga UI v5          Design system (componentes standalone)
+NGX-ECharts + ECharts Gráficos interativos e animados
 SCSS                 Preprocessador para estilos
+Jest                 Testes unitários + cobertura
 ```
 
 ### Deploy & CI/CD
@@ -62,7 +62,7 @@ npm / Node.js 18+    Package management
 ### Development
 
 ```
-@angular/cli v17     Gerador de componentes
+@angular/cli v21     Gerador de componentes
 ng serve             Desenvolvimento local
 npm build            Build otimizado
 ```
@@ -176,6 +176,16 @@ npm run build
 
 # Output: dist/pdi-frontend/browser/
 # Pronto para deploy em Vercel, AWS, etc.
+```
+
+### Testes Unitários e Cobertura
+
+```bash
+# Executar testes unitários
+npm test
+
+# Gerar cobertura de testes (pasta ./coverage)
+npm run test:coverage
 ```
 
 ---

@@ -1,0 +1,57 @@
+<section class="hero-banner">
+  <div class="hero-shell">
+    <div class="hero-top">
+      <div class="hero-main">
+        <h1 class="hero-title">
+          PDI — Júnior para <span class="hero-highlight">Pleno</span><br />
+          em Back-end & Arquitetura
+        </h1>
+
+        <!-- IDENTIDADE -->
+        <div class="identity-block">
+          <h2 class="identity-name">{{ professionalName }}</h2>
+          <p class="identity-role">
+            {{ currentRole }} · {{ squad }}
+          </p>
+        </div>
+      </div>
+
+      <aside class="hero-objective-block">
+        <p class="hero-objective-label">Objetivo Atual</p>
+        <p class="hero-objective">{{ objectivePlaceholder }}</p>
+      </aside>
+    </div>
+
+    <div class="chips-layout">
+      <div class="chip-group">
+        <div class="chip-group-techs">
+          <p class="chip-group-title">Tecnologias que utilizo no dia a dia</p>
+          <div class="chip-list">
+            @for (chip of dailyStack; track chip) {
+            <span class="chip">{{ chip }}</span>
+            }
+          </div>
+        </div>
+
+        <div class="chip-group-practices">
+          <p class="chip-group-title">Práticas e métodos que aplico</p>
+          <div class="chip-list">
+            @for (chip of workPractices; track chip) {
+            <span class="chip chip-secondary">{{ chip }}</span>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- OBJETIVO DO CICLO (CARD) -->
+      <div class="objective-card-circle">
+        <h3 class="objective-label-circle">🎯 Objetivo do Ciclo</h3>
+        <p class="objective-text-circle">{{ objectivePlaceholderCycle }}</p>
+      </div>
+
+      <div class="hero-slot">
+        <ng-content />
+      </div>
+    </div>
+  </div>
+</section>

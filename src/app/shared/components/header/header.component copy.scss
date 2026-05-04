@@ -1,0 +1,117 @@
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(5, 5, 9, 0.75);
+  padding: 1.5rem 0 1rem;
+}
+
+.header-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* IDENTIDADE */
+.identity-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.identity-name {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.identity-role {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* TÍTULO DO PDI */
+.pdi-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-family: var(--font-family-mono);
+  color: var(--color-primary);
+  letter-spacing: 0.05em;
+}
+
+/* OBJETIVO DO CICLO */
+.objective-card {
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(236, 106, 42, 0.08);
+  border: 1px solid rgba(236, 106, 42, 0.25);
+}
+
+.objective-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+}
+
+.objective-text {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* NAVEGAÇÃO */
+.nav-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.nav-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* LINKS PRIMÁRIOS */
+.nav-primary {
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+
+  &:hover {
+    border-color: var(--color-primary);
+    background: rgba(236, 106, 42, 0.08);
+    color: var(--color-text-primary);
+  }
+}
+
+/* LINKS SECUNDÁRIOS */
+.nav-secondary {
+  border: 1px solid rgba(236, 106, 42, 0.35);
+  background: rgba(236, 106, 42, 0.12);
+  color: var(--color-primary);
+
+  &:hover {
+    background: rgba(236, 106, 42, 0.2);
+  }
+}
+
+/* ESTADO ATIVO */
+.is-active {
+  background: rgba(236, 106, 42, 0.25);
+  border-color: var(--color-primary);
+  color: var(--color-text-primary);
+}

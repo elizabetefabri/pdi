@@ -1,5 +1,14 @@
+:host {
+  display: block;
+  min-width: 0;
+  height: 100%;
+}
+
 .diag-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
   border-radius: 12px;
@@ -50,14 +59,17 @@
   color: var(--color-text-secondary);
   padding: 0.25rem 0;
   line-height: 1.45;
+  flex-wrap: nowrap;
+  align-items: flex-start;
 }
 
 .diag-card li::before {
   content: '->';
   color: var(--color-primary);
   margin-top: 1px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
-
 .diag-card.green li::before {
   color: var(--color-accent-green);
 }

@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+
+.details-page {
+  min-height: 100vh;
+}
+
+.details-content {
+  padding: 0 1rem 3rem;
+}
+
+.content-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-bg-secondary);
+  padding: 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+  color: var(--color-primary);
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin: 0;
+}

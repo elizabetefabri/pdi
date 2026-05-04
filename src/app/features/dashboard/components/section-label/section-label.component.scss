@@ -20,8 +20,14 @@
   white-space: nowrap;
 }
 
+.section-subtitle {
+  margin: 0 0 0.75rem;
+  color: var(--color-primary);
+  font-size: 15px;
+}
+
 @media (min-width: 768px) {
   .section-label {
-    margin: 3rem 0 1.5rem;
+    margin: 1rem 0 1.5rem;
   }
 }

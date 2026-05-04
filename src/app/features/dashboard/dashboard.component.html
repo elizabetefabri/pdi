@@ -1,60 +1,62 @@
 <main class="dashboard">
   <app-header></app-header>
+  <app-hero-banner>
+    <section class="dashboard-content">
+      <div class="main-grid">
+        @if (data(); as d) {
+          <section id="diagnostico">
+            <app-section-label text="01 · Diagnóstico Atual"></app-section-label>
 
-  <section class="dashboard-content">
-    <div class="main-grid">
-      <app-section-label text="01 · diagnostico atual"></app-section-label>
+            <div class="diag-grid">
+              @for (card of d.diagnosticCards; track card.title) {
+                <app-diagnostic-card [card]="card"></app-diagnostic-card>
+              }
+            </div>
+          </section>
 
-      <div class="diag-grid">
-        <app-diagnostic-card
-          *ngFor="let card of diagnosticCards"
-          [card]="card"
-        ></app-diagnostic-card>
+          <article class="alert-box">
+            <h3 class="alert-title">⚡ {{ d.focusAlert.title }}</h3>
+            <p>{{ d.focusAlert.body }}</p>
+          </article>
+
+          <section id="fases">
+            <app-section-label text="02 · Trilha de Evolução Técnica — Fases e Prioridades"></app-section-label>
+
+            <section class="timeline">
+              @for (phase of d.phases; track phase.period) {
+                <app-phase-block [phase]="phase"></app-phase-block>
+              }
+            </section>
+          </section>
+
+          <section id="certificacoes">
+            <app-section-label text="03 · Certificações Estratégicas — Roadmap de Credenciais"></app-section-label>
+
+            <div class="cert-grid">
+              @for (cert of d.certifications; track cert.name) {
+                <app-cert-card [cert]="cert"></app-cert-card>
+              }
+            </div>
+          </section>
+
+          <section id="entregas">
+            <app-section-label text="04 · Entregas Mensuráveis — Impacto por Trimestre"></app-section-label>
+            <app-deliveries-table [rows]="d.deliveries"></app-deliveries-table>
+          </section>
+
+          <section id="posicionamento">
+            <app-section-label text="05 · Estratégias de Posicionamento para Pleno"></app-section-label>
+
+            <div class="pos-grid">
+              @for (card of d.positionCards; track card.title) {
+                <app-position-card [card]="card"></app-position-card>
+              }
+            </div>
+          </section>
+        }
+        <app-footer></app-footer>
       </div>
+    </section>
+  </app-hero-banner>
 
-      <article class="alert-box">
-        <h3 class="alert-title">⚡ {{ focusAlert.title }}</h3>
-        <p>{{ focusAlert.body }}</p>
-      </article>
-
-      <app-section-label text="02 · trilha de desenvolvimento — fases"></app-section-label>
-
-      <section class="timeline">
-        <app-phase-block
-          *ngFor="let phase of phases"
-          [phase]="phase"
-        ></app-phase-block>
-      </section>
-
-      <app-section-label text="03 · certificacoes — roadmap"></app-section-label>
-
-      <div class="cert-grid">
-        <app-cert-card
-          *ngFor="let cert of certifications"
-          [cert]="cert"
-        ></app-cert-card>
-      </div>
-
-      <app-section-label text="04 · entregas mensuraveis — por trimestre"></app-section-label>
-      <app-deliveries-table [rows]="deliveries"></app-deliveries-table>
-
-      <app-section-label text="05 · como se posicionar para pleno"></app-section-label>
-
-      <div class="pos-grid">
-        <app-position-card
-          *ngFor="let card of positionCards"
-          [card]="card"
-        ></app-position-card>
-      </div>
-
-      <footer class="dashboard-footer">
-        <span>Copyright © 2026
-          <em class="link">
-            <a href="https://elizabetesousafabri.com.br/" target="_blank" rel="noopener">Elizabete Fabri</a>
-          </em>.
-        </span>
-        <span>"Nada substitui a persistência, nem mesmo o talento."</span>
-      </footer>
-    </div>
-  </section>
 </main>
