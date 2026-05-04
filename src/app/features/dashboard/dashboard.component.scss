@@ -6,10 +6,10 @@
   min-height: 100vh;
 
   background: linear-gradient(
-    90deg,
-    rgba(236, 97, 42, 0.1) 0%,
-    rgba(116, 42, 236, 0.03) 45%,
-    rgba(94, 247, 132, 0.04) 100%
+   120deg,
+    rgba(151, 45, 3, 0.1) 0%,
+    rgba(66, 3, 168, 0.03) 45%,
+    rgba(245, 247, 94, 0.04) 100%
   );
 }
 
@@ -42,6 +42,7 @@ section[id] {
   border: 1px solid rgba(234, 179, 8, 0.3);
   border-radius: 12px;
   padding: 1rem;
+  margin-top: 0.8rem;
 }
 
 .alert-title {
