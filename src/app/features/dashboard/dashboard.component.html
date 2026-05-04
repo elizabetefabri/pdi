@@ -20,7 +20,7 @@
           </article>
 
           <section id="fases">
-            <app-section-label text="02 · Trilha de Desenvolvimento — Fases"></app-section-label>
+            <app-section-label text="02 · Trilha de Evolução Técnica — Fases e Prioridades"></app-section-label>
 
             <section class="timeline">
               @for (phase of d.phases; track phase.period) {
@@ -30,7 +30,7 @@
           </section>
 
           <section id="certificacoes">
-            <app-section-label text="03 · Certificações — Roadmap"></app-section-label>
+            <app-section-label text="03 · Certificações Estratégicas — Roadmap de Credenciais"></app-section-label>
 
             <div class="cert-grid">
               @for (cert of d.certifications; track cert.name) {
@@ -40,12 +40,12 @@
           </section>
 
           <section id="entregas">
-            <app-section-label text="04 · Entregas Mensuráveis — Por Trimestre"></app-section-label>
+            <app-section-label text="04 · Entregas Mensuráveis — Impacto por Trimestre"></app-section-label>
             <app-deliveries-table [rows]="d.deliveries"></app-deliveries-table>
           </section>
 
           <section id="posicionamento">
-            <app-section-label text="05 · Como se Posicionar para Pleno"></app-section-label>
+            <app-section-label text="05 · Estratégias de Posicionamento para Pleno"></app-section-label>
 
             <div class="pos-grid">
               @for (card of d.positionCards; track card.title) {
