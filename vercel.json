@@ -3,11 +3,5 @@
   "version": 2,
   "installCommand": "npm install",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/pdi/browser",
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "outputDirectory": "dist/pdi/browser"
 }
