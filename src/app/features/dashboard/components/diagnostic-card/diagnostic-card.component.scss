@@ -10,8 +10,8 @@
   flex-direction: column;
   height: 100%;
   background: var(--color-bg-secondary);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
+  border: 0.0625rem solid var(--color-border);
+  border-radius: 0.75rem;
   padding: 1rem;
   overflow: hidden;
 }
@@ -21,7 +21,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 3px;
+  width: 0.1875rem;
   height: 100%;
   background: var(--color-primary);
 }
@@ -40,8 +40,8 @@
 
 .diag-title {
   font-family: var(--font-family-mono);
-  font-size: 11px;
-  letter-spacing: 1px;
+  font-size: 0.6875rem;
+  letter-spacing: 0.0625rem;
   text-transform: uppercase;
   color: var(--color-text-muted);
   margin-bottom: 0.5rem;
@@ -55,7 +55,7 @@
 .diag-card li {
   display: flex;
   gap: 0.5rem;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--color-text-secondary);
   padding: 0.25rem 0;
   line-height: 1.45;
@@ -66,7 +66,7 @@
 .diag-card li::before {
   content: '->';
   color: var(--color-primary);
-  margin-top: 1px;
+  margin-top: 0.0625rem;
   flex-shrink: 0;
   white-space: nowrap;
 }
@@ -82,7 +82,7 @@
   color: #ef4444;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .diag-card {
     padding: 1.25rem 1.5rem;
   }

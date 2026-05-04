@@ -2,23 +2,23 @@
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
-  border-bottom: 1px solid var(--color-border);
-  backdrop-filter: blur(6px);
+  border-bottom: 0.0625rem solid var(--color-border);
+  backdrop-filter: blur(0.375rem);
 
-  padding-top: 20px;
+  padding-top: 1.25rem;
 }
 
 .header-shell {
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
   padding: 0.75rem 1rem;
 }
 
 .identity-bar {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.375rem;
+  justify-content: flex-start;
   margin-bottom: 0.75rem;
 }
 
@@ -26,7 +26,7 @@
 .identity-goal {
   margin: 0;
   font-family: var(--font-family-mono);
-  font-size: 10px;
+  font-size: 0.625rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -38,29 +38,30 @@
 
 .nav-block {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 0.5rem;
-  justify-content: space-between;
+  justify-content: flex-start;
 
-  padding-bottom: 20px;
+  padding-bottom: 1.25rem;
 }
 
 .nav-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  width: 100%;
 }
 
 .nav-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 30px;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
+  min-height: 1.875rem;
+  border: 0.0625rem solid var(--color-border);
+  border-radius: 62.4375rem;
   padding: 0 0.75rem;
   font-family: var(--font-family-mono);
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--color-text-secondary);
   transition: all var(--transition-fast);
   background: var(--color-bg-secondary);
@@ -82,4 +83,26 @@
   border-color: var(--color-primary);
   color: var(--color-text-primary);
   background: rgba(236, 106, 42, 0.14);
+}
+
+@media (min-width: 48rem) {
+  .app-header {
+    padding-top: 1.5rem;
+  }
+
+  .identity-bar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    justify-content: space-between;
+  }
+
+  .nav-block {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nav-row {
+    width: auto;
+  }
 }

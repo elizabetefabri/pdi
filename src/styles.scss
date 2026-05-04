@@ -60,7 +60,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
@@ -70,12 +70,20 @@ body {
   font-family: var(--font-family-sans);
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
-  line-height: 1.6;
+  line-height: 1.5;
   min-height: 100vh;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
 }
 
 // ==================
@@ -84,24 +92,24 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.03125rem;
 }
 
 h1 {
-  font-size: clamp(28px, 5vw, 48px);
+  font-size: clamp(1.75rem, 5vw, 3rem);
   font-family: var(--font-family-display);
 }
 
 h2 {
-  font-size: clamp(24px, 4vw, 36px);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
 }
 
 h3 {
-  font-size: clamp(20px, 3vw, 28px);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 p {
@@ -133,10 +141,10 @@ button {
 input, textarea, select {
   font-family: inherit;
   background-color: var(--color-bg-secondary);
-  border: 1px solid var(--color-border);
+  border: 0.0625rem solid var(--color-border);
   color: var(--color-text-primary);
   padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: 4px;
+  border-radius: 0.25rem;
 
   &:focus {
     outline: none;
@@ -153,9 +161,9 @@ input, textarea, select {
 // 6. Utilidades
 // ==================
 .container {
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
-  padding: 0 var(--spacing-lg);
+  padding: 0 clamp(1rem, 4vw, 1.5rem);
 }
 
 .text-primary {
@@ -187,7 +195,7 @@ input, textarea, select {
 }
 
 .border-bottom {
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 0.0625rem solid var(--color-border);
 }
 
 // ==================
@@ -196,7 +204,7 @@ input, textarea, select {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(0.625rem);
   }
   to {
     opacity: 1;
@@ -207,7 +215,7 @@ input, textarea, select {
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-1.25rem);
   }
   to {
     opacity: 1;
@@ -218,7 +226,7 @@ input, textarea, select {
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(20px);
+    transform: translateX(1.25rem);
   }
   to {
     opacity: 1;
