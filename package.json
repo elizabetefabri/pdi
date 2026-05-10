@@ -41,6 +41,7 @@
     "@types/express": "^5.0.1",
     "@types/jest": "^30.0.0",
     "@types/node": "^20.17.19",
+    "@vercel/node": "^5.7.16",
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.3.0",
     "jest-preset-angular": "^16.1.4",
