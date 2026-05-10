@@ -3,11 +3,5 @@
   "version": 2,
   "buildCommand": "npm run build",
   "framework": "angular",
-  "nodeVersion": "20.x",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/api/[...routes]"
-    }
-  ]
+  "nodeVersion": "20.x"
 }
