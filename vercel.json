@@ -1,15 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
-  "buildCommand": "npm install && npm run build",
-  "outputDirectory": "dist/pdi/browser",
+  "buildCommand": "npm run build",
+  "framework": "angular",
+  "nodeVersion": "20.x",
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/api/[[...route]]"
+      "destination": "/api/[...routes]"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
