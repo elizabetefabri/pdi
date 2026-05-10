@@ -178,6 +178,30 @@ npm run build
 # Pronto para deploy em Vercel, AWS, etc.
 ```
 
+### Enviar e Fazer Deploy
+
+```bash
+git status
+git add .
+git commit -m "feat: descreva sua mudança"
+git push origin main
+```
+
+Se o projeto estiver conectado à Vercel pelo Git, o push já dispara o deploy automático.
+
+Deploy manual pela CLI:
+
+```bash
+npx vercel
+npx vercel --prod
+```
+
+Para validar localmente antes de enviar:
+
+```bash
+npm run build
+```
+
 ### Testes Unitários e Cobertura
 
 ```bash

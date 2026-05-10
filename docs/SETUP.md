@@ -51,7 +51,25 @@ npm run build
 # Gera: dist/pdi/browser + dist/pdi/server
 ```
 
-### 5. Rodar Servidor SSR
+### 5. Enviar e Publicar
+
+```bash
+git status
+git add .
+git commit -m "feat: descreva sua mudança"
+git push origin main
+```
+
+Se o repositório estiver integrado à Vercel via Git, o push dispara o deploy automático.
+
+Deploy manual pela CLI:
+
+```bash
+npx vercel
+npx vercel --prod
+```
+
+### 6. Rodar Servidor SSR
 
 ```bash
 npm run serve:ssr:pdi

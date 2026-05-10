@@ -9,14 +9,14 @@
   flex-direction: column;
   height: 100%;
   background: var(--color-bg-secondary);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
+  border: 0.0625rem solid var(--color-border);
+  border-radius: 0.75rem;
   padding: 1rem;
 }
 
 .pos-card h3 {
   font-family: var(--font-family-display);
-  font-size: 15px;
+  font-size: 0.9375rem;
   margin-bottom: 0.75rem;
   color: var(--color-text-primary);
 }
@@ -26,11 +26,11 @@
 }
 
 .pos-card li {
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 1.45;
   color: var(--color-text-secondary);
   padding: 0.375rem 0;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 0.0625rem solid var(--color-border);
 }
 
 .pos-card li:last-child {
